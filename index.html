@@ -3,35 +3,21 @@ layout: default
 title: Home
 ---
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url | absolute_url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+<div class="about">
+  <h1 class="about-title">Hi, I'm Andrea Tontini</h1>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+  <p class="about-bio">
+    I'm a software developer passionate about building clean, efficient, and user-friendly applications.
+    I enjoy working across the stack — from designing thoughtful backend systems to crafting polished interfaces.
+  </p>
 
-    {{ post.content }}
+  <p class="about-bio">
+    When I'm not writing code, you can find me exploring new technologies, contributing to open-source projects,
+    or enjoying the great outdoors.
+  </p>
+
+  <div class="about-links">
+    <a href="https://github.com/atontini" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://linkedin.com/in/andreatontini" target="_blank" rel="noopener">LinkedIn</a>
   </div>
-  {% endfor %}
-</div>
-
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ paginator.next_page_path | absolute_url }}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ '/' | absolute_url }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ paginator.previous_page_path | absolute_url }}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
 </div>
