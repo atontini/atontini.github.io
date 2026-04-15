@@ -1,7 +1,7 @@
 # Setup
 title:               Andrea Tontini personal homepage
 description:         'Software Engineer specialized in Embedded System, Linux and Open Source Software.'
-url:                 https://lanyon.getpoole.com
+url:                 https://atontini.github.io/
 baseurl:             ''
 paginate:            5
 permalink:           pretty
