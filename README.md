@@ -64,3 +64,5 @@ Work and push directly to `gh-pages` after validation. GitHub Pages builds the b
 The `github-pages` dependency pins the supported Jekyll/plugin family. Run `bundle update` deliberately, review compatibility and the lockfile, then repeat the checks. The unused Minima theme and redundant direct Jekyll dependencies were removed from the Gemfile; GitHub Pages still brings its supported dependency set transitively.
 
 The original site used Poole/Lanyon by Mark Otto; its MIT notice is retained in `LICENSE.md`.
+
+Dependency audit (18 October 2026): `bundler-audit` reports [CVE-2026-85396 in rubyzip](https://github.com/advisories/GHSA-47m2-wp7j-p9vc). The supported Pages dependency set brings in `jekyll-remote-theme`, which requires rubyzip below 3.0; the advisory requires 3.4 or later. That constraint prevents a compatible lockfile-only fix. This site uses local layouts and does not configure a remote theme or accept uploaded archives. Recheck when GitHub Pages updates its dependency set.
