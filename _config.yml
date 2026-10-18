@@ -1,15 +1,53 @@
-# Setup
-title:               Andrea Tontini personal homepage
-description:         'Software Engineer specialized in Embedded System, Linux and Open Source Software.'
-url:                 https://atontini.github.io/
-baseurl:             ''
-paginate:            5
-permalink:           pretty
-
-# About/contact
+title: Andrea Tontini
+tagline: Software engineer
+description: Software engineer interested in embedded systems, firmware, Linux, and open-source software.
+url: https://atontini.github.io
+baseurl: ''
+permalink: pretty
+lang: en
+locale: en_US
+timezone: Europe/Rome
 author:
-  name:              Andrea Tontini
-
-# Gems
+  name: Andrea Tontini
+social:
+  name: Andrea Tontini
+  links:
+    - https://github.com/atontini
+    - https://linkedin.com/in/andreatontini
 plugins:
-  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+feed:
+  path: atom.xml
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+strict_front_matter: true
+liquid:
+  error_mode: strict
+  strict_filters: true
+defaults:
+  - scope:
+      path: ''
+    values:
+      image: /assets/social-card.png
+  - scope:
+      path: ''
+      type: posts
+    values:
+      layout: post
+      author: Andrea Tontini
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE.md
+  - scripts
+  - package.json
+  - package-lock.json
+  - node_modules
+  - vendor
+  - AGENTS.md
