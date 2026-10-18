@@ -1,0 +1,14 @@
+{
+  "name": "andrea-tontini-website-checks",
+  "private": true,
+  "scripts": {
+    "check:html": "html-validate '_site/**/*.html'",
+    "check:links": "python3 scripts/check-site.py",
+    "test": "node scripts/browser-checks.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.11.0",
+    "html-validate": "10.5.0",
+    "playwright": "1.56.1"
+  }
+}
