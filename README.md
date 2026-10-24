@@ -40,6 +40,36 @@ The Python check validates local links, fragment targets, metadata, feed/sitemap
 
 ## Content
 
+### Coding agent instructions
+
+`AGENTS.md` holds the shared writing and repository rules. Edit shared policy
+there; the following entry points import it or direct the agent to read it.
+
+| Agent | Instruction file |
+| --- | --- |
+| Codex and agents supporting AGENTS.md | `AGENTS.md` |
+| Claude Code | `CLAUDE.md` |
+| Gemini CLI | `GEMINI.md` |
+| GitHub Copilot | `.github/copilot-instructions.md` |
+| Cursor | `.cursor/rules/repository.mdc` |
+| Windsurf Cascade | `.windsurf/rules/repository.md` |
+| Cline | `.clinerules/repository.md` |
+
+Claude Code and Gemini CLI use documented `@` imports. The remaining adapters
+explicitly ask the agent to read the shared file; their Markdown links are
+references, not automatic imports. Cursor uses `alwaysApply: true` and Windsurf
+uses `trigger: always_on`. These files are excluded from the Jekyll site.
+
+File conventions follow the official documentation for
+[Claude Code](https://code.claude.com/docs/en/memory),
+[Gemini CLI](https://google-gemini.github.io/gemini-cli/docs/cli/gemini-md.html),
+[GitHub Copilot](https://code.visualstudio.com/docs/agent-customization/custom-instructions),
+[Cursor](https://prod.cursor.com/docs/rules),
+[Windsurf Cascade](https://docs.windsurf.com/windsurf/cascade/memories), and
+[Cline](https://github.com/cline/cline/blob/main/docs/customization/cline-rules.mdx).
+
+### Publishing articles
+
 Add featured projects in `_data/projects.yml` with `name`, `category`, `description`, `technologies` (a list), and `url`. Verify each public repository before describing it; identify forks and avoid implying authorship or results the source does not establish. Profile and navigation links have their own data files. Technical interests are grouped in `_data/interests.yml`, without proficiency ratings.
 
 Create `_posts/YYYY-MM-DD-short-title.md`:

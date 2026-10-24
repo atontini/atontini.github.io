@@ -51,3 +51,9 @@ exclude:
   - node_modules
   - vendor
   - AGENTS.md
+  - CLAUDE.md
+  - GEMINI.md
+  - .github
+  - .cursor
+  - .windsurf
+  - .clinerules
