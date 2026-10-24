@@ -29,14 +29,24 @@ Open <http://localhost:4000>. The theme follows the operating system by default;
 ```sh
 JEKYLL_ENV=production bundle exec jekyll build --safe --trace
 python3 scripts/check-site.py
-# Optional local quality checks; Node 22+ and Python 3 are required.
+# Optional local quality checks; Node 24 LTS and Python 3 are required.
+# With nvm installed, use the same Node major as CI:
+nvm install
+nvm use
 npm ci --legacy-peer-deps
-npx playwright install --with-deps chromium
+npx --no-install playwright install --with-deps chromium
 npm run check:html
 npm test
 ```
 
 The Python check validates local links, fragment targets, metadata, feed/sitemap XML, preserved public URLs, and development-file exclusions. Browser checks start and stop their own local server. They cover four viewport widths, light/dark accessibility with axe, theme persistence, keyboard use, reduced motion, long code/tables, disabled JavaScript, and blocked storage. Automated checks supplement manual review; they do not establish complete WCAG conformance or real-world Core Web Vitals.
+
+CI uses Node 24 LTS from `.nvmrc` and an explicit `ubuntu-24.04` runner.
+Playwright 1.56.1 supports that Ubuntu release; the moving `ubuntu-latest`
+label can select Ubuntu 26.04, where this pinned Playwright version cannot
+install Chromium. Review Playwright's platform support before changing the
+runner OS. Browser installation uses the locally installed, lockfile-pinned
+Playwright CLI after `npm ci`.
 
 ## Content
 
