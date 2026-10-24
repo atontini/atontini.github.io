@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<header class="page-header">
+  <p class="eyebrow">From the workbench</p>
+  <h1>Notes &amp; articles<span class="accent">.</span></h1>
+  <p>Writing about software, tools, and things I’m learning along the way.</p>
+  <a class="text-link" href="{{ '/atom.xml' | relative_url }}">Subscribe via Atom <span aria-hidden="true">↗</span></a>
+</header>
+<section class="blog-archive" aria-labelledby="archive-title">
+  <h2 id="archive-title">All posts</h2>
+  {% if site.posts.size > 0 %}{% include post-list.html posts=site.posts %}{% else %}<p class="empty-state">No posts yet. Subscribe to the feed or check back for new articles.</p>{% endif %}
+</section>

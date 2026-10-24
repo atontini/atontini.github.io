@@ -1,0 +1,16 @@
+# Descriptions verified against the public repositories and READMEs.
+- name: tokensave
+  category: Open-source fork
+  description: A local code intelligence MCP server that gives coding agents a searchable graph of symbols and their relationships. My fork of aovestdipaperino/tokensave.
+  technologies: [Rust, MCP, Tree-sitter, SQLite]
+  url: https://github.com/atontini/tokensave
+- name: gpi2-example
+  category: Parallel computing
+  description: An educational C example of neighbor communication on a periodic 2D grid, using registered memory and one-sided notified writes with GPI-2.
+  technologies: [C, GPI-2, GASPI, Linux]
+  url: https://github.com/atontini/gpi2-example
+- name: ICI-RT-NSCLC
+  category: Research software
+  description: R code and a Jupyter notebook for pooling overall survival curves from aggregate study data, accompanying a published lung cancer meta-analysis.
+  technologies: [R, Jupyter, metaSurvival]
+  url: https://github.com/atontini/ICI-RT-NSCLC

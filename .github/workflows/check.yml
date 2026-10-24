@@ -1,0 +1,32 @@
+name: Site checks
+on:
+  push:
+    branches: [gh-pages]
+  pull_request:
+    branches: [gh-pages]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: bundle exec jekyll build --safe --trace
+        env:
+          JEKYLL_ENV: production
+      - run: npm ci --legacy-peer-deps
+      - run: npm run check:html
+      - run: npm run check:links
+      - run: npx playwright install --with-deps chromium
+      - run: npm test

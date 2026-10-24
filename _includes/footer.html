@@ -1,0 +1,10 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© {{ site.time | date: '%Y' }} Andrea Tontini<span class="footer-note">Built with Jekyll. Hosted on GitHub Pages.</span></p>
+    <nav aria-label="Footer navigation">
+      {% for profile in site.data.profiles %}<a href="{{ profile.url }}">{{ profile.name }}</a>{% endfor %}
+      <a href="{{ '/atom.xml' | relative_url }}">Atom feed</a>
+      <a href="#top">Back to top ↑</a>
+    </nav>
+  </div>
+</footer>
