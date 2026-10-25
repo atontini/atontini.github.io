@@ -89,7 +89,7 @@ for path, doc in docs.items():
         elif parsed.fragment and target in docs and unquote(parsed.fragment) not in docs[target].ids:
             errors.append(f'{path.relative_to(root)}: missing fragment {link}')
 
-for preserved in ['index.html', 'blog/index.html', 'blog.html', '404.html', 'jekyll/update/2026/04/14/welcome-to-jekyll/index.html']:
+for preserved in ['index.html', 'blog/index.html', '404.html', 'jekyll/update/2026/04/14/welcome-to-jekyll/index.html']:
     if not (root / preserved).is_file():
         errors.append(f'Missing existing URL: {preserved}')
 for name in ['atom.xml', 'sitemap.xml']:

@@ -19,7 +19,7 @@ Open <http://localhost:4000>. The theme follows the operating system by default;
 - `_config.yml`: site identity, URLs, supported plugins, and post defaults.
 - `_data/`: navigation, professional profiles, and featured projects.
 - `_includes/` and `_layouts/`: shared navigation, metadata, footer, post list, and page/article templates.
-- `_posts/`: dated Markdown articles; `blog.html` lists all published posts.
+- `_posts/`: dated Markdown articles; `blog.html` generates the published post list at `/blog/`.
 - `public/css/site.css` and `public/js/script.js`: theme, layout, and behavior.
 - `assets/`: favicon and social preview; `imgs/` retains existing public SVG URLs.
 - `scripts/`: output validation and browser/accessibility checks; never published.
@@ -95,7 +95,7 @@ categories: [embedded, linux]
 
 Write Markdown below the front matter. Use fenced code blocks with a language, descriptive image alt text, and headings beginning at `##`. Give images explicit dimensions to reserve space. For wide tables or code, use `tabindex="0"` on the table or `<pre>` when keyboard scrolling is needed; provide a caption for tables. Use real publication dates. Future-dated posts are excluded by Jekyll. Optional per-post `image` overrides the default social preview.
 
-Post URLs retain `permalink: pretty`, including category segments. Do not change an existing post’s filename, date, or categories without an explicit redirect plan. `/blog/` (also served as `/blog` by Pages), the `/blog.html` alias, `/atom.xml`, `/404.html`, and existing profile image URLs are retained. The original Jekyll welcome post remains published without edits.
+Post URLs retain `permalink: pretty`, including category segments. Do not change an existing post’s filename, date, or categories without an explicit redirect plan. `/blog/` (also served as `/blog` by Pages), `/atom.xml`, `/404.html`, and existing profile image URLs are retained. The original Jekyll welcome post remains published without edits.
 
 ## Deployment
 
