@@ -1,0 +1,35 @@
+name: Site checks
+on:
+  push:
+    branches: [gh-pages]
+  pull_request:
+    branches: [gh-pages]
+permissions:
+  contents: read
+jobs:
+  check:
+    # Playwright 1.56.1 supports Ubuntu 24.04, but not 26.04.
+    # Keep the OS explicit so ubuntu-latest migrations cannot break installation.
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: bundle exec jekyll build --safe --trace
+        env:
+          JEKYLL_ENV: production
+      - run: npm ci --legacy-peer-deps
+      - run: npm run check:html
+      - run: npm run check:links
+      - name: Install Chromium and its system dependencies
+        run: npx --no-install playwright install --with-deps chromium
+      - run: npm test

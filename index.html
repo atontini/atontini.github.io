@@ -1,26 +1,64 @@
 ---
 layout: default
-title: Home
+title: Software engineer
+description: Andrea Tontini — software engineer. Selected projects, open-source contributions, and technical writing.
 ---
-
-<div class="about">
-  <h1 class="about-title">Hi, I'm Andrea Tontini</h1>
-
-  <p class="about-bio">
-    Hi there!
-    I'm a software engineer passionate about embedded systems and firmware development.
-  </p>
-
-  <p class="about-bio">
-    I am a Content Creator and Event Organizer of <a href="https://www.italianembedded.com" target="_blank">Italian Embedded</a>, a network that connects experts and enthusiasts in the embedded systems world through articles, events, and collaborations.
-  </p>
-
-  <p class="about-bio">
-    When I'm not writing code, you can find me exploring new technologies, riding my motorcycle or just relaxing in the countryside with my family.
-  </p>
-
-  <div class="about-links">
-    <a href="https://github.com/atontini" target="_blank" rel="noopener"><img src=/imgs/github.svg alt=GitHub></a>
-    <a href="https://linkedin.com/in/andreatontini" target="_blank" rel="noopener"><img src=/imgs/linkedin.svg alt=LinkedIn></a>
+<section class="hero" aria-labelledby="intro-title">
+  <p class="eyebrow hero-label">Software engineer</p>
+  <div class="hero-copy">
+    <h1 id="intro-title">Andrea<br>Tontini<span class="accent">.</span></h1>
+    <p class="hero-description">Software, open source,<br>and notes along the way.</p>
+    <div class="hero-actions">
+      <a class="button" href="#projects">Selected projects <span aria-hidden="true">↓</span></a>
+      <a class="text-link" href="{{ '/blog/' | relative_url }}">Read the blog <span aria-hidden="true">↗</span></a>
+    </div>
   </div>
-</div>
+</section>
+
+<section id="projects" class="section" aria-labelledby="projects-title">
+  <div class="section-heading"><div><p class="eyebrow">01 / Selected projects</p><h2 id="projects-title">Selected work.</h2></div><a class="text-link" href="https://github.com/atontini?tab=repositories">All repositories <span aria-hidden="true">↗</span></a></div>
+  <div class="project-grid">
+    {% for project in site.data.projects %}
+    <article class="project-card">
+      <div class="project-top"><span class="project-number" aria-hidden="true">0{{ forloop.index }}</span><span class="eyebrow">{{ project.category | escape }}</span></div>
+      <h3><a href="{{ project.url }}">{{ project.name | escape }} <span aria-hidden="true">↗</span></a></h3>
+      <p>{{ project.description | escape }}</p>
+      <ul class="tags" >{% for technology in project.technologies %}<li>{{ technology | escape }}</li>{% endfor %}</ul>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="writing-title">
+  <div class="section-heading"><div><p class="eyebrow">02 / Writing</p><h2 id="writing-title">From the notebook.</h2></div><a class="text-link" href="{{ '/blog/' | relative_url }}">All posts <span aria-hidden="true">→</span></a></div>
+  {% if site.posts.size > 0 %}{% assign recent_posts = site.posts | slice: 0, 3 %}{% include post-list.html posts=recent_posts %}{% else %}<p class="empty-state">No posts yet. Future articles will appear here and in the <a href="{{ '/atom.xml' | relative_url }}">Atom feed</a>.</p>{% endif %}
+</section>
+
+<section id="about" class="section about-section" aria-labelledby="about-title">
+  <div><p class="eyebrow">03 / About</p><h2 id="about-title">Beyond the code.</h2></div>
+  <div class="about-copy">
+    <p>I’m passionate about embedded systems and firmware development. My technical interests include Linux, C and C++, C# and .NET, and the architecture behind maintainable software.</p>
+    <p>I’m Andrea, a software engineer. I also create content and organize events at <a href="https://www.italianembedded.com">Italian Embedded</a>, a community connecting embedded systems professionals and enthusiasts through articles, events, and collaboration.</p>
+    <p class="muted">Away from the keyboard, I enjoy riding my motorcycle and spending time in the countryside with my family.</p>
+    <a class="text-link" href="https://www.italianembedded.com">Meet Italian Embedded <span aria-hidden="true">↗</span></a>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="interests-title">
+  <div class="section-heading"><div><p class="eyebrow">04 / Technical interests</p><h2 id="interests-title">Across the stack.</h2></div></div>
+  <div class="interests-grid">
+    {% for group in site.data.interests %}
+    <div class="interest-group">
+      <h3>{{ group.title | escape }}</h3>
+      <p>{{ group.description | escape }}</p>
+      <ul class="tags">{% for item in group.items %}<li>{{ item | escape }}</li>{% endfor %}</ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="contact" class="section contact-section" aria-labelledby="contact-title">
+  <p class="eyebrow">05 / Contact</p><h2 id="contact-title">Keep in touch<span class="accent">.</span></h2>
+  <p>Find my code on GitHub, or connect with me on LinkedIn.</p>
+  <div class="hero-actions">{% for profile in site.data.profiles %}<a class="{% if forloop.first %}button{% else %}text-link{% endif %}" href="{{ profile.url }}">{{ profile.name }} <span aria-hidden="true">↗</span></a>{% endfor %}</div>
+</section>
