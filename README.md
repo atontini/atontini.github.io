@@ -17,7 +17,7 @@ Open <http://localhost:4000>. The theme follows the operating system by default;
 ## Structure
 
 - `_config.yml`: site identity, URLs, supported plugins, and post defaults.
-- `_data/`: navigation, professional profiles, and featured projects.
+- `_data/`: navigation, professional profiles, featured projects, and technical interests.
 - `_includes/` and `_layouts/`: shared navigation, metadata, footer, post list, and page/article templates.
 - `_posts/`: dated Markdown articles; `blog.html` generates the published post list at `/blog/`.
 - `public/css/site.css` and `public/js/script.js`: theme, layout, and behavior.
@@ -80,7 +80,7 @@ File conventions follow the official documentation for
 
 ### Publishing articles
 
-Add featured projects in `_data/projects.yml` with `name`, `category`, `description`, `technologies` (a list), and `url`. Verify each public repository before describing it; identify forks and avoid implying authorship or results the source does not establish. Profile and navigation links have their own data files. The homepage leads with selected projects and recent writing, followed by a short biography and contact links.
+Add featured projects in `_data/projects.yml` with `name`, `category`, `description`, `technologies` (a list), and `url`. Verify each public repository before describing it; identify forks and avoid implying authorship or results the source does not establish. Profile and navigation links have their own data files. The homepage leads with selected projects and recent writing, followed by a short biography, technical interests, and contact links. Technical interests are grouped in `_data/interests.yml`.
 
 Create `_posts/YYYY-MM-DD-short-title.md`:
 
