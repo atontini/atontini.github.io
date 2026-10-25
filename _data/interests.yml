@@ -1,9 +1,0 @@
-- title: Close to the hardware
-  description: Embedded systems, firmware development, and Linux.
-  items: [C, C++, Linux]
-- title: Software engineering
-  description: Software architecture, maintainable code, and developer tooling.
-  items: [C#, .NET, Git]
-- title: Open source & exploration
-  description: Public code, parallel computing, and research software.
-  items: [GASPI, MCP, R]
